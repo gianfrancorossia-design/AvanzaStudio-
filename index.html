@@ -1,705 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avanza Studio | Soluciones Estratégicas y Digitales para tu Negocio</title>
-
-    <style>
-        :root {
-            --primary: #4C0519;
-            --accent: #A8133C;
-            --text-light: #FFFFFF;
-            --text-dark: #2A1218;
-            --bg-light: #FAF5F6;
-            --card-bg: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #23020B;
-            color: var(--text-light);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(35, 2, 11, 0.4);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-light);
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 1px rgba(255,255,255,0.3);
-        }
-
-        .logo span {
-            color: #FF3366;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: #FF3366;
-        }
-
-        .hero {
-            background: linear-gradient(
-                135deg,
-                #23020B 30%,
-                #4C0519 65%,
-                #830A2B 100%
-            );
-            color: var(--text-light);
-            padding: 5rem 5% 6rem 5%;
-            text-align: center;
-            border-bottom: 3px solid #A8133C;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: #FFFFFF;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero h1 span {
-            color: #FF4D79;
-            text-shadow: 0 0 25px rgba(255, 77, 121, 0.4);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            max-width: 750px;
-            margin: 0 auto 1.2rem auto;
-            color: #FFE4EC;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 0 auto 2.5rem auto;
-            color: #FFFFFF;
-            font-weight: 400;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn {
-            background-color: #A8133C;
-            color: #FFFFFF;
-            padding: 0.9rem 2.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                background-color 0.3s ease;
-            display: inline-block;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background-color: #C2184B;
-            box-shadow: 0 6px 20px rgba(194, 24, 75, 0.5);
-        }
-
-        .services {
-            padding: 5rem 5%;
-            max-width: 1250px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.4rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .section-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3.5rem auto;
-            color: #70424A;
-            font-size: 1.05rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(76, 5, 25, 0.05);
-            border-top: 4px solid var(--accent);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 25px rgba(76, 5, 25, 0.1);
-        }
-
-        .service-content {
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .service-card p {
-            color: var(--text-dark);
-            font-size: 0.98rem;
-            line-height: 1.6;
-        }
-
-        .service-price {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.05rem;
-            text-align: left;
-            margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px solid #F0DCE2;
-        }
-
-        .contact {
-            background: linear-gradient(
-                135deg,
-                #830A2B 0%,
-                #4C0519 50%,
-                #23020B 100%
-            );
-            color: var(--text-light);
-            padding: 5rem 5%;
-            text-align: center;
-            border-top: 3px solid #A8133C;
-        }
-
-        .contact h2 {
-            color: #FFFFFF;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .contact p {
-            margin-bottom: 2rem;
-            font-size: 1.15rem;
-            color: #FFFFFF;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.3);
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(35, 2, 11, 0.75);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            backdrop-filter: blur(4px);
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-container {
-            background: #FFFFFF;
-            width: 100%;
-            max-width: 550px;
-            border-radius: 12px;
-            padding: 2.5rem;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-top: 5px solid var(--accent);
-            animation: modalFadeIn 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.5rem;
-            font-size: 1.8rem;
-            color: var(--primary);
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .modal-container h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-container p {
-            color: #70424A;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.4rem;
-            font-size: 0.9rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #D1B3BC;
-            border-radius: 6px;
-            font-size: 1rem;
-            color: var(--text-dark);
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(168, 19, 60, 0.15);
-        }
-
-        .services-checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-top: 0.5rem;
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid #E2C4D0;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            font-weight: normal !important;
-            margin-bottom: 0 !important;
-        }
-
-        .checkbox-label input {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--accent);
-            cursor: pointer;
-        }
-
-        .modal-container .btn {
-            width: 100%;
-            margin-top: 1rem;
-            cursor: pointer;
-        }
-
-        footer {
-            background-color: #170107;
-            color: #E2C4D0;
-            text-align: center;
-            padding: 2.2rem 1rem;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .footer-links {
-            margin-top: 0.6rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .footer-links a {
-            color: #FF80A1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .footer-links a:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.1rem;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-card {
-                padding: 1.8rem;
-            }
-
-            .modal-container {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avanza Studio | Soluciones Estratégicas y Digitales</title>
+<style>
+:root{--primary:#4c0519;--accent:#a8133c;--dark:#2a1218;--light:#faf5f6}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+body{background:var(--light);color:var(--dark);line-height:1.6}
+header{background:#23020b;color:#fff;padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 15px #23020b66}
+.logo{font-size:1.6rem;font-weight:700}.logo span{color:#ff3366}
+nav a{color:#fff;text-decoration:none;margin-left:2rem;font-weight:500}nav a:hover{color:#ff3366}
+.hero{background:linear-gradient(135deg,#23020b 30%,#4c0519 65%,#830a2b);color:#fff;padding:5rem 5% 6rem;text-align:center;border-bottom:3px solid var(--accent)}
+.hero h1{font-size:2.8rem;line-height:1.2;margin-bottom:1rem}.hero h1 span{color:#ff4d79}
+.hero-subtitle{font-size:1.2rem;color:#ffe4ec;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.2rem}
+.hero p{font-size:1.15rem;max-width:750px;margin:0 auto 2.5rem}
+.btn{background:var(--accent);color:#fff;padding:.9rem 2.2rem;border-radius:6px;border:1px solid #ffffff40;font-weight:700;cursor:pointer;box-shadow:0 4px 12px #0003;transition:.3s}
+.btn:hover{background:#c2184b;transform:translateY(-2px)}
+.services{padding:5rem 5%;max-width:1250px;margin:auto}
+.section-title{text-align:center;font-size:2.4rem;color:var(--primary);margin-bottom:.8rem}
+.section-description{text-align:center;max-width:700px;margin:0 auto 3.5rem;color:#70424a}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.service-card{background:#fff;padding:2.5rem;border-radius:10px;border-top:4px solid var(--accent);box-shadow:0 4px 15px #4c05190d;transition:.3s}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 10px 25px #4c05191a}
+.service-card h3{font-size:1.4rem;color:var(--primary);margin-bottom:1rem;line-height:1.3}
+.service-price{font-weight:700;color:var(--accent);margin-top:1.5rem;padding-top:1rem;border-top:1px solid #f0dce2}
+.contact{background:linear-gradient(135deg,#830a2b,#4c0519,#23020b);color:#fff;padding:5rem 5%;text-align:center}
+.contact h2{color:#fff}.contact p{font-size:1.15rem;max-width:600px;margin:0 auto 2rem}
+footer{background:#170107;color:#e2c4d0;text-align:center;padding:2.2rem 1rem;font-size:.9rem}
+.footer-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:.6rem}
+.footer-links a{color:#ff80a1;text-decoration:none;cursor:pointer}
+.modal-overlay{display:none;position:fixed;inset:0;background:#23020bbf;z-index:2000;justify-content:center;align-items:center;padding:1rem;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-container{background:#fff;width:100%;max-width:550px;max-height:90vh;overflow:auto;border-radius:12px;padding:2.5rem;position:relative;border-top:5px solid var(--accent)}
+.modal-close{position:absolute;top:1rem;right:1.4rem;font-size:1.8rem;color:var(--primary);border:0;background:none;cursor:pointer}
+.modal-container h3{color:var(--primary);font-size:1.8rem}.modal-container>p{color:#70424a;margin-bottom:1.5rem}
+.form-group{margin-bottom:1.2rem}.form-group>label{display:block;font-weight:600;color:var(--primary);margin-bottom:.4rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.8rem;border:1px solid #d1b3bc;border-radius:6px;font-size:1rem;background:#fff}
+.form-group textarea{min-height:120px;resize:vertical}
+.services-checkboxes{display:flex;flex-direction:column;gap:.6rem;background:var(--light);padding:1rem;border:1px solid #e2c4d0;border-radius:6px}
+.checkbox-label{display:flex;align-items:center;gap:.6rem;font-size:.9rem}.checkbox-label input{width:18px;height:18px;accent-color:var(--accent)}
+.modal-container .btn{width:100%}.btn:disabled{opacity:.7}
+.form-status{display:none;margin-top:1rem;padding:.8rem;border-radius:6px;text-align:center}
+.form-status.success{display:block;background:#dcfce7;color:#14532d}.form-status.error{display:block;background:#fee2e2;color:#7f1d1d}
+@media(max-width:768px){nav{display:none}.hero h1{font-size:2.1rem}.services-grid{grid-template-columns:1fr}.modal-container{padding:1.5rem}}
+</style>
 </head>
-
 <body>
-    <header>
-        <div class="logo">Avanza<span>Studio</span></div>
 
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto" class="openModalBtn">Contacto</a>
-        </nav>
-    </header>
+<header>
+<div class="logo">Avanza<span>Studio</span></div>
+<nav><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a class="openModal">Contacto</a></nav>
+</header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-subtitle">
-            Soluciones Tecnológicas en tiempos tecnológicos
-        </div>
+<section id="inicio" class="hero">
+<div class="hero-subtitle">Soluciones tecnológicas en tiempos tecnológicos</div>
+<h1>Impulsa tu negocio <span>al siguiente nivel</span></h1>
+<p>Potenciamos tu negocio combinando estrategia comercial, software a medida y aceleración digital para transformar operaciones, optimizar recursos y convertir oportunidades en resultados medibles, con soluciones flexibles y adaptadas a cada proyecto.</p>
+<button class="btn openModal">Contáctanos</button>
+</section>
 
-        <h1>
-            Impulsa tu negocio <span>al siguiente nivel</span>
-        </h1>
+<section id="servicios" class="services">
+<h2 class="section-title">Nuestros Servicios</h2>
+<p class="section-description">Soluciones integrales diseñadas para resolver dolores estratégicos, digitales y operativos en las micro, pequeñas y medianas empresas.</p>
+<div class="services-grid">
+<div class="service-card"><h3>Desarrollo Web y Soluciones Digitales</h3><p>Diseñamos sitios web estratégicos, rápidos y optimizados para convertir visitantes en clientes y fortalecer la presencia digital de tu negocio.</p><div class="service-price">Precio desde $79.990 CLP</div></div>
+<div class="service-card"><h3>Consultoría y Estrategia Comercial</h3><p>Evaluamos y optimizamos tus procesos de venta, precios y canales para identificar oportunidades de crecimiento y maximizar la rentabilidad.</p></div>
+<div class="service-card"><h3>Automatización de Procesos y Software a Medida</h3><p>Desarrollamos herramientas personalizadas para eliminar tareas repetitivas, reducir errores, optimizar recursos y ahorrar tiempo.</p></div>
+<div class="service-card"><h3>Reactivación y Gestión Integral de Proyectos</h3><p>Destrabamos proyectos detenidos y asumimos su gestión estratégica e implementación digital para convertir ideas en soluciones operativas.</p></div>
+</div>
+</section>
 
-        <p>
-            Potenciamos tu negocio combinando estrategia comercial, software a
-            medida y aceleración digital para transformar operaciones, optimizar
-            recursos y convertir oportunidades en resultados medibles, con
-            soluciones flexibles y adaptadas a cada proyecto.
-        </p>
+<section id="contacto" class="contact">
+<h2 class="section-title">¿Listo para transformar tu negocio?</h2>
+<p>Hablemos sobre tu proyecto o esas ideas que aún no has podido implementar. Descubre cómo podemos convertirlas en soluciones concretas.</p>
+<button class="btn openModal">Cuéntanos tu proyecto</button>
+</section>
 
-        <button class="btn openModalBtn">
-            Contáctanos
-        </button>
-    </section>
+<footer>
+<p>&copy; 2026 Avanza Studio. Todos los derechos reservados.</p>
+<div class="footer-links">
+<a class="openModal">Contáctenos</a><span>•</span>
+<a href="mailto:gian-franco.rossi@ugm.cl">gian-franco.rossi@ugm.cl</a><span>•</span>
+<a href="mailto:tomas.lama@ugm.cl">tomas.lama@ugm.cl</a>
+</div>
+</footer>
 
-    <section id="servicios" class="services">
-        <h2 class="section-title">Nuestros Servicios</h2>
+<div class="modal-overlay" id="modal">
+<div class="modal-container">
+<button class="modal-close" id="closeModal" aria-label="Cerrar">&times;</button>
+<h3>Hablemos de tu proyecto</h3>
+<p>Cuéntanos sobre tu negocio y el desafío que quieres resolver.</p>
 
-        <p class="section-description">
-            Soluciones integrales diseñadas para resolver dolores estratégicos,
-            digitales y operativos en las micro, pequeñas y medianas empresas.
-        </p>
+<form id="contactForm" action="https://formsubmit.co/ajax/tomas.lama@ugm.cl" method="POST">
+<input type="hidden" name="_subject" value="Avanza Studio | Nueva solicitud comercial">
+<input type="hidden" name="_cc" value="gian-franco.rossi@ugm.cl">
+<input type="hidden" name="_template" value="table">
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>Desarrollo Web y Soluciones Digitales</h3>
+<div class="form-group"><label for="nombre">Nombre completo</label><input id="nombre" required placeholder="Ej. Carlos Pérez"></div>
+<div class="form-group"><label for="empresa">Empresa o negocio</label><input id="empresa" required placeholder="Ej. Comercial Los Andes"></div>
+<div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" required placeholder="Ej. +56 9 1234 5678"></div>
+<div class="form-group"><label for="correo">Correo electrónico</label><input type="email" id="correo" required placeholder="tu@empresa.cl"></div>
 
-                    <p>
-                        Diseñamos e implementamos sitios web estratégicos,
-                        rápidos y optimizados para convertir visitantes en
-                        clientes. Creamos plataformas modernas y adaptables que
-                        fortalecen la presencia digital de tu negocio y
-                        automatizan la captura de prospectos.
-                    </p>
-                </div>
+<div class="form-group">
+<label>¿Qué servicios te interesan?</label>
+<div class="services-checkboxes">
+<label class="checkbox-label"><input type="checkbox" name="servicio" value="Desarrollo Web y Soluciones Digitales">Desarrollo Web y Soluciones Digitales</label>
+<label class="checkbox-label"><input type="checkbox" name="servicio" value="Consultoría y Estrategia Comercial">Consultoría y Estrategia Comercial</label>
+<label class="checkbox-label"><input type="checkbox" name="servicio" value="Automatización de Procesos y Software a Medida">Automatización de Procesos y Software a Medida</label>
+<label class="checkbox-label"><input type="checkbox" name="servicio" value="Reactivación y Gestión Integral de Proyectos">Reactivación y Gestión Integral de Proyectos</label>
+</div>
+</div>
 
-                <div class="service-price">
-                    Precio desde $79.990 CLP
-                </div>
-            </div>
+<div class="form-group"><label for="necesidad">¿Qué necesitas resolver?</label><textarea id="necesidad" required maxlength="1200" placeholder="Describe el problema, el resultado esperado y los plazos importantes."></textarea></div>
 
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>Consultoría y Estrategia Comercial</h3>
+<div class="form-group"><label for="etapa">¿En qué etapa está tu proyecto?</label>
+<select id="etapa" required><option value="">Selecciona una opción</option><option>Es una idea inicial</option><option>Está en planificación</option><option>Ya funciona y necesita mejoras</option><option>Está detenido y quiero reactivarlo</option></select>
+</div>
 
-                    <p>
-                        Evaluamos, diseñamos y optimizamos la estructura
-                        comercial de tu empresa. Analizamos tus procesos de
-                        venta, precios y canales de distribución para identificar
-                        oportunidades de crecimiento, mejorar el rendimiento
-                        operativo y maximizar la rentabilidad.
-                    </p>
-                </div>
-            </div>
+<div class="form-group"><label for="presupuesto">Presupuesto estimado (opcional)</label>
+<select id="presupuesto"><option>Prefiero conversarlo</option><option>Menos de $100.000 CLP</option><option>$100.000 a $300.000 CLP</option><option>$300.000 a $700.000 CLP</option><option>Más de $700.000 CLP</option></select>
+</div>
 
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>Automatización de Procesos y Software a Medida</h3>
+<div class="form-group"><label for="contacto">¿Cómo prefieres que te contactemos?</label>
+<select id="contacto" required><option value="">Selecciona una opción</option><option>Correo electrónico</option><option>Llamada telefónica</option><option>WhatsApp</option></select>
+</div>
 
-                    <p>
-                        Desarrollamos herramientas digitales y software comercial
-                        personalizado para eliminar tareas repetitivas y conectar
-                        tus sistemas de gestión. Simplificamos la operación diaria
-                        de tu empresa para reducir errores, optimizar recursos y
-                        ahorrar tiempo clave.
-                    </p>
-                </div>
-            </div>
+<button type="submit" class="btn">Enviar Solicitud</button>
+<div class="form-status" id="status"></div>
+</form>
+</div>
+</div>
 
-            <div class="service-card">
-                <div class="service-content">
-                    <h3>Reactivación y Gestión Integral de Proyectos</h3>
+<script>
+const modal=document.getElementById("modal"),form=document.getElementById("contactForm"),statusBox=document.getElementById("status"),submit=form.querySelector('[type="submit"]');
+document.querySelectorAll(".openModal").forEach(b=>b.onclick=e=>{e.preventDefault();modal.classList.add("active")});
+document.getElementById("closeModal").onclick=()=>modal.classList.remove("active");
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove("active")};
 
-                    <p>
-                        Destrabamos y ejecutamos proyectos clave que tu empresa
-                        tiene detenidos por falta de tiempo o capacidad técnica.
-                        Asumimos la gestión estratégica y la implementación
-                        digital para transformar ideas postergadas en activos
-                        rentables y operativos en tiempo récord.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+form.onsubmit=async e=>{
+e.preventDefault();
+const services=[...form.querySelectorAll('[name="servicio"]:checked')].map(x=>x.value);
+if(!services.length){statusBox.textContent="Selecciona al menos un servicio.";statusBox.className="form-status error";return}
 
-    <section id="contacto" class="contact">
-        <h2 class="section-title">
-            ¿Listo para transformar tu negocio?
-        </h2>
+const empresa=document.getElementById("empresa").value.trim();
+const email=document.getElementById("correo").value.trim();
 
-        <p>
-            Hablemos sobre tu proyecto o esas ideas que aún no has podido
-            implementar. Descubre cómo podemos convertirlas en soluciones
-            concretas para tu negocio.
-        </p>
+const data={
+"Nombre del cliente":document.getElementById("nombre").value.trim(),
+"Empresa o negocio":empresa,
+"Teléfono":document.getElementById("telefono").value.trim(),
+email,
+"Servicios de interés":services.join(", "),
+"Necesidad principal":document.getElementById("necesidad").value.trim(),
+"Etapa del proyecto":document.getElementById("etapa").value,
+"Presupuesto estimado":document.getElementById("presupuesto").value,
+"Contacto preferido":document.getElementById("contacto").value,
+_subject:`Avanza Studio | Nueva solicitud de ${empresa}`,
+_replyto:email,
+_cc:"gian-franco.rossi@ugm.cl",
+_template:"table"
+};
 
-        <button class="btn openModalBtn">
-            Cuéntanos tu proyecto
-        </button>
-    </section>
+submit.disabled=true;submit.textContent="Enviando...";
+statusBox.className="form-status";
 
-    <footer>
-        <p>
-            &copy; 2026 Avanza Studio. Todos los derechos reservados.
-        </p>
-
-        <div class="footer-links">
-            <a class="openModalBtn">Contáctenos</a>
-            <span>•</span>
-
-            <a href="mailto:gian-franco.rossi@ugm.cl">
-                gian-franco.rossi@ugm.cl
-            </a>
-
-            <span>•</span>
-
-            <a href="mailto:tomas.lama@ugm.cl">
-                tomas.lama@ugm.cl
-            </a>
-        </div>
-    </footer>
-
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal-container">
-            <button class="modal-close" id="closeModalBtn">
-                &times;
-            </button>
-
-            <h3>Hablemos de tu proyecto</h3>
-
-            <p>
-                Completa tus datos y selecciona los servicios de tu interés.
-                Nos pondremos en contacto contigo a la brevedad.
-            </p>
-
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo</label>
-
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        required
-                        placeholder="Ej. Carlos Pérez"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-
-                    <input
-                        type="tel"
-                        id="telefono"
-                        name="telefono"
-                        required
-                        placeholder="Ej. +56 9 1234 5678"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="correo">Correo electrónico</label>
-
-                    <input
-                        type="email"
-                        id="correo"
-                        name="correo"
-                        required
-                        placeholder="tu@empresa.cl"
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label>¿Qué servicios te interesan?</label>
-
-                    <div class="services-checkboxes">
-                        <label class="checkbox-label">
-                            <input
-                                type="checkbox"
-                                name="servicio"
-                                value="Desarrollo Web y Soluciones Digitales"
-                            >
-                            Desarrollo Web y Soluciones Digitales
-                        </label>
-
-                        <label class="checkbox-label">
-                            <input
-                                type="checkbox"
-                                name="servicio"
-                                value="Consultoría y Estrategia Comercial"
-                            >
-                            Consultoría y Estrategia Comercial
-                        </label>
-
-                        <label class="checkbox-label">
-                            <input
-                                type="checkbox"
-                                name="servicio"
-                                value="Automatización de Procesos y Software a Medida"
-                            >
-                            Automatización de Procesos y Software a Medida
-                        </label>
-
-                        <label class="checkbox-label">
-                            <input
-                                type="checkbox"
-                                name="servicio"
-                                value="Reactivación y Gestión Integral de Proyectos"
-                            >
-                            Reactivación y Gestión Integral de Proyectos
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn">
-                    Enviar Solicitud
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        const modal = document.getElementById('contactModal');
-        const openModalBtns = document.querySelectorAll('.openModalBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const contactForm = document.getElementById('contactForm');
-
-        openModalBtns.forEach(btn => {
-            btn.addEventListener('click', event => {
-                event.preventDefault();
-                modal.classList.add('active');
-            });
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        modal.addEventListener('click', event => {
-            if (event.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-
-        contactForm.addEventListener('submit', event => {
-            event.preventDefault();
-
-            alert(
-                '¡Gracias por contactar a Avanza Studio! ' +
-                'Hemos recibido tus datos y los servicios seleccionados. ' +
-                'Nos comunicaremos pronto.'
-            );
-
-            contactForm.reset();
-            modal.classList.remove('active');
-        });
-    </script>
+try{
+const response=await fetch(form.action,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
+if(!response.ok)throw new Error();
+statusBox.textContent="Solicitud enviada correctamente. Nos comunicaremos pronto.";
+statusBox.className="form-status success";
+form.reset();
+}catch{
+statusBox.textContent="No pudimos enviar la solicitud. Inténtalo nuevamente.";
+statusBox.className="form-status error";
+}finally{
+submit.disabled=false;
+submit.textContent="Enviar Solicitud";
+}
+};
+</script>
 </body>
-</html> 
+</html>
